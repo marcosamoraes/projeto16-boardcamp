@@ -1,10 +1,12 @@
 import validateStoreRentalsSchema from '../schemas/storeRentalsSchema.js';
 import validateUpdateRentalsSchema from '../schemas/updateRentalsSchema.js';
 import validateFinishRentalsSchema from '../schemas/finishRentalsSchema.js';
+import db from '../config/database.js';
 
 export async function list(req, res) {
   try {
-    return res.sendStatus(201);
+    const rentals = await db.query('SELECT * FROM rentals');
+    return res.send(rentals.rows);
   } catch (err) {
     return res.status(500).send(err);
   }

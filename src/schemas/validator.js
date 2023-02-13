@@ -1,14 +1,9 @@
 const getCodeByErrorType = (type) => {
   let code;
-  console.log(type);
+
   switch (type) {
-    case 'any.required':
-    case 'number.min':
-    case 'string.empty':
-      code = 400;
-      break;
     default:
-      code = 422;
+      code = 400;
       break;
   }
 
