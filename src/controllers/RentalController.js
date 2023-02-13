@@ -90,7 +90,8 @@ export async function finish(req, res) {
 
     let delayFee = null;
 
-    const diffDays = dateExpiresAt.diff(dayjs(), 'day');
+    const diffDays = dayjs().diff(dateExpiresAt, 'day');
+
     if (diffDays > 0) delayFee = diffDays * (rental.originalPrice / rental.daysRented);
 
     await db.query('UPDATE rentals SET "returnDate" = $1, "delayFee" = $2 WHERE "id" = $3', [returnDate, delayFee, id]);
