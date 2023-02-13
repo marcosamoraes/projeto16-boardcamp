@@ -3,20 +3,20 @@ import cors from 'cors';
 import {
   list as listGames,
   store as storeGames,
-} from '../controllers/GameController';
+} from '../controllers/GameController.js';
 import {
   list as listRentals,
   store as storeRentals,
   update as updateRentals,
   destroy as destroyRentals,
   finish as finishRentals,
-} from '../controllers/RentalController';
+} from '../controllers/RentalController.js';
 import {
   list as listCustomers,
   show as showCustomers,
   store as storeCustomers,
   update as updateCustomers,
-} from '../controllers/CustomerController';
+} from '../controllers/CustomerController.js';
 
 const router = express.Router();
 

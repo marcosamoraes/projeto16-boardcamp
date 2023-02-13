@@ -15,7 +15,7 @@ export async function store(req, res) {
     error,
   } = await validateStoreRentalsSchema(req.body);
 
-  if (error) return res.status(422).send(error);
+  if (error) return res.status(error.code).send(error.message);
 
   try {
     return res.sendStatus(201);
@@ -29,7 +29,7 @@ export async function update(req, res) {
     error,
   } = await validateUpdateRentalsSchema(req.body);
 
-  if (error) return res.status(422).send(error);
+  if (error) return res.status(error.code).send(error.message);
 
   try {
     return res.sendStatus(201);
@@ -51,7 +51,7 @@ export async function finish(req, res) {
     error,
   } = await validateFinishRentalsSchema(req.body);
 
-  if (error) return res.status(422).send(error);
+  if (error) return res.status(error.code).send(error.message);
 
   try {
     return res.sendStatus(201);

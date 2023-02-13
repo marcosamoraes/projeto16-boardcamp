@@ -22,7 +22,7 @@ export async function store(req, res) {
     error,
   } = await validateStoreCustomersSchema(req.body);
 
-  if (error) return res.status(422).send(error);
+  if (error) return res.status(error.code).send(error.message);
 
   try {
     return res.sendStatus(201);
@@ -36,7 +36,7 @@ export async function update(req, res) {
     error,
   } = await validateUpdateCustomersSchema(req.body);
 
-  if (error) return res.status(422).send(error);
+  if (error) return res.status(error.code).send(error.message);
 
   try {
     return res.sendStatus(201);
