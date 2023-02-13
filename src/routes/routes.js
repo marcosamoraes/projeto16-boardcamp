@@ -7,7 +7,6 @@ import {
 import {
   list as listRentals,
   store as storeRentals,
-  update as updateRentals,
   destroy as destroyRentals,
   finish as finishRentals,
 } from '../controllers/RentalController.js';
@@ -33,7 +32,6 @@ router.put('/customers/:id', updateCustomers);
 
 router.get('/rentals', listRentals);
 router.post('/rentals', storeRentals);
-router.put('/rentals/:id', updateRentals);
 router.delete('/rentals/:id', destroyRentals);
 router.post('/rentals/:id/return', finishRentals);
 

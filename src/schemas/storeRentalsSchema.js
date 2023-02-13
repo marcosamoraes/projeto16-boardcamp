@@ -2,8 +2,8 @@ import Joi from 'joi';
 import validator from './validator.js';
 
 const storeRentalsSchema = Joi.object({
-  customerId: Joi.number().required(),
-  gameId: Joi.number().required(),
+  customerId: Joi.number().min(1).required(),
+  gameId: Joi.number().min(1).required(),
   daysRented: Joi.number().min(1).required(),
 });
 
