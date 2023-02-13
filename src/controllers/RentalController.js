@@ -66,7 +66,7 @@ export async function destroy(req, res) {
 
     if (!rental.returnDate) return res.sendStatus(400);
 
-    await db.query('DELETE rentals WHERE "id" = $1', [id]);
+    await db.query('DELETE FROM rentals WHERE "id" = $1', [id]);
 
     return res.sendStatus(200);
   } catch (err) {
