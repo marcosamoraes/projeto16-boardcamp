@@ -1,3 +1,6 @@
+import validateStoreCustomersSchema from '../schemas/storeCustomersSchema.js';
+import validateUpdateCustomersSchema from '../schemas/updateCustomersSchema.js';
+
 export async function list(req, res) {
   try {
     return res.sendStatus(201);
@@ -15,6 +18,12 @@ export async function show(req, res) {
 }
 
 export async function store(req, res) {
+  const {
+    error,
+  } = await validateStoreCustomersSchema(req.body);
+
+  if (error) return res.status(422).send(error);
+
   try {
     return res.sendStatus(201);
   } catch (err) {
@@ -23,6 +32,12 @@ export async function store(req, res) {
 }
 
 export async function update(req, res) {
+  const {
+    error,
+  } = await validateUpdateCustomersSchema(req.body);
+
+  if (error) return res.status(422).send(error);
+
   try {
     return res.sendStatus(201);
   } catch (err) {
